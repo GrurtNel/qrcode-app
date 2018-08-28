@@ -1,0 +1,14 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+    { path: 'customer', loadChildren: './customer/customer.module#CustomerModule' },
+    { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
+    { path: '', loadChildren: './guest/guest.module#GuestModule' },
+];
+
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+})
+export class AppRoutingModule { }
