@@ -75,7 +75,14 @@ export class HttpErrorService implements HttpInterceptor {
             if (err instanceof Error) {
                 console.error('An error accured', err.message);
             } else {
-                this.toastService.error(err.error['error']);
+                switch (err.status) {
+                    case 0:
+                        this.toastService.error('Rất xin lỗi!!!Server đang bảo trì');
+                        break;
+                    default:
+                        this.toastService.error(err.error['error']);
+                        break;
+                }
             }
           });
     }

@@ -4,7 +4,15 @@
 
 export const environment = {
   production: false,
-  baseURL: 'http://localhost:8081/api/'
+  baseURL: 'http://localhost:8081/api/',
+  firebase: {
+    apiKey: "AIzaSyDyJZd5gv_J5dPHrpzK-kOlXpocpAld0eM",
+    authDomain: "trunglv-c5d29.firebaseapp.com",
+    databaseURL: "https://trunglv-c5d29.firebaseio.com",
+    projectId: "trunglv-c5d29",
+    storageBucket: "trunglv-c5d29.appspot.com",
+    messagingSenderId: "80453937715"
+  }
 };
 
 /*

@@ -37,13 +37,14 @@
         <div class="uk-margin">
             <label class="uk-form-label" for="form-horizontal-text">Logo công ty</label>
             <div class="uk-form-controls">
-                <input class="uk-input" #logo  type="file" placeholder="Nhập tên công ty" ngModel name="logo">
+                <input class="uk-input"   type="file" placeholder="Nhập tên công ty"  (change)="uploadFile($event)">
+                <progress id="js-progressbar" class="uk-progress" value="{{uploadPercent|async}}" max="100"></progress>
             </div>
           </div>
         <div class="uk-margin">
           <label class="uk-form-label" for="form-horizontal-text">Thông tin công ty</label>
           <div class="uk-form-controls">
-              <p-editor [(ngModel)]="companyInformation" [style]="{'height':'320px'}" name="company_information"></p-editor>
+              <p-editor ngModel [style]="{'height':'320px'}" name="information"></p-editor>
           </div>
         </div>
       <div class="uk-margin">
