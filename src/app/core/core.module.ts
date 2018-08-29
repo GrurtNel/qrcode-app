@@ -4,6 +4,7 @@ import { HttpService, HttpErrorService, AuthHttpService } from '../x/http/http.s
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastNotificationService } from '../x/http/toast-notification.service';
 import { SnotifyService, ToastDefaults } from 'ng-snotify';
+import { AuthService } from '../x/http/auth.service';
 
 @NgModule({
   imports: [
@@ -19,7 +20,13 @@ import { SnotifyService, ToastDefaults } from 'ng-snotify';
     SnotifyService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: HttpErrorService, 
+      useClass: HttpErrorService,
+      multi: true
+    },
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHttpService,
       multi: true
     },
   ]

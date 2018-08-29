@@ -14,22 +14,21 @@
     </div>
     <div class="uk-card-body">
       <div class="uk-overflow-auto">
-      <table class="uk-table uk-table-hover uk-table-divider uk-table-middle">
+        <div class="uk-placeholder uk-text-center" *ngIf="products.length==0">
+          Hiện không có sản phẩm nào
+        </div>
+      <table class="uk-table uk-table-hover uk-table-divider uk-table-middle" *ngIf="products.length!=0">
         <thead>
           <tr>
             <th class="uk-table-shrink"></th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Date</th>
+            <th>Tên SP</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor="let p of products">
             <td><img src="https://picsum.photos/40/40/?random=1" alt="Alt text" class="uk-border-circle uk-preserve-width "></td>
-            <td>John Doe</td>
-            <td>Maecenas sagittis, massa nulla luctus mauris</td>
-            <td>11/09/18</td>
+            <td>{{p.title}}</td>
             <td>
               <a href="#" class="uk-icon-link uk-text-success" data-uk-icon="check"></a>
               <a href="#" class="uk-icon-link uk-text-danger" data-uk-icon="close"></a>

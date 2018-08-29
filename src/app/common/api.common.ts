@@ -22,7 +22,10 @@ export const apiURL = {
     login: getUrl('auth/login'),
     //report
     getGeneralReport: getUrl('admin/report/general'),
-    registerCustomer: getUrl('guest/register')
+    registerCustomer: getUrl('guest/register'),
+    //customer
+    createProduct: getUrl('customer/product/create'),
+    getProducts: getUrl('customer/product/list')
 }
 
 function getUrl(endPoint: string) {

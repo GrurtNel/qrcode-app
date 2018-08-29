@@ -5,6 +5,9 @@ import { AngularFireStorage } from 'angularfire2/storage';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { finalize } from 'rxjs/operators';
+import { ToastNotificationService } from '../../../x/http/toast-notification.service';
+import { NgForm } from '@angular/forms';
+import { Product } from '../../../shared/models/product.model';
 
 @Component({
   selector: 'app-create-product',
@@ -19,18 +22,19 @@ export class CreateProductComponent implements OnInit {
   uploadedImageIndex = -1
   uploadPercent: Observable<number>;
   downloadURL$: Observable<string>;
+  product: Product
 
   constructor(
     private httpService: HttpService,
     private fs: AngularFireStorage,
-    private router: Router
+    private router: Router,
+    private notify: ToastNotificationService
   ) { }
 
   ngOnInit() {
   }
 
   uploadFile(event) {
-    console.log(this.imageIndex)
     const file = event.target.files[0];
     const filePath = this.imagesPath[this.imageIndex]
     const fileRef = this.fs.ref(filePath);
@@ -44,5 +48,14 @@ export class CreateProductComponent implements OnInit {
         })
       })
     ).subscribe()
+  }
+
+  onRegister(f: NgForm) {
+    if (this.downloadURLs.filter(x => x !== '').length !== this.downloadURLs.length) {
+      this.notify.error('Bạn chưa upload đủ ảnh')
+      return
+    }
+    this.product = f.value
+    console.log(this.product)
   }
 }
