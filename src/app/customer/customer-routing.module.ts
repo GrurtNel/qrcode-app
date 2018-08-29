@@ -8,7 +8,8 @@ const routes: Routes = [
   {
     path: '', component: CustomerComponent, children: [
       { path: 'profile', component: ProfileComponent },
-      { path: '', component: DashboardComponent }
+      { path: 'product', loadChildren: './product/product.module#ProductModule' },
+      { path: '', component: DashboardComponent },
     ]
   }
 ];
