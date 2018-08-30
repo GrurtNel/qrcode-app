@@ -6,6 +6,7 @@ import { GuestComponent } from './guest.component';
 import { FormsModule } from '@angular/forms';
 import { EditorModule } from 'primeng/editor';
 import { RegisterComponent } from './register/register.component';
+import { ScanProductComponent } from './scan-product/scan-product.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { RegisterComponent } from './register/register.component';
   ],
   declarations: [
     GuestComponent,
-    RegisterComponent
+    RegisterComponent,
+    ScanProductComponent
   ],
   providers: [
   ]
