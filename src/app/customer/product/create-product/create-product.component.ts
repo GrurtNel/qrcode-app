@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { guidGenerator } from '../../../x/utils';
-import { HttpService } from '../../../x/http/http.service';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
@@ -8,6 +7,7 @@ import { finalize } from 'rxjs/operators';
 import { ToastNotificationService } from '../../../x/http/toast-notification.service';
 import { NgForm } from '@angular/forms';
 import { Product } from '../../../shared/models/product.model';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-create-product',
@@ -25,7 +25,7 @@ export class CreateProductComponent implements OnInit {
   product: Product
 
   constructor(
-    private httpService: HttpService,
+    private productService: ProductService,
     private fs: AngularFireStorage,
     private router: Router,
     private notify: ToastNotificationService
@@ -51,12 +51,15 @@ export class CreateProductComponent implements OnInit {
   }
 
   onRegister(f: NgForm) {
-    console.log(this.downloadURLs)
     if (this.downloadURLs.filter(x => x !== '').length !== this.downloadURLs.length) {
       this.notify.error('Bạn chưa upload đủ ảnh')
       return
     }
     this.product = f.value
-    console.log(this.product)
+    this.product.gallery = this.downloadURLs
+    this.productService.createProduct(this.product).subscribe(newProduct => {
+      this.notify.success('Thêm sản phẩm thành công')
+      this.router.navigate(['./'])
+    })
   }
 }

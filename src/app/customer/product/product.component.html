@@ -14,10 +14,10 @@
     </div>
     <div class="uk-card-body">
       <div class="uk-overflow-auto">
-        <div class="uk-placeholder uk-text-center" *ngIf="products.length==0">
+        <div class="uk-placeholder uk-text-center" *ngIf="!products">
           Hiện không có sản phẩm nào
         </div>
-      <table class="uk-table uk-table-hover uk-table-divider uk-table-middle" *ngIf="products.length!=0">
+      <table class="uk-table uk-table-hover uk-table-divider uk-table-middle" *ngIf="products">
         <thead>
           <tr>
             <th class="uk-table-shrink"></th>
@@ -27,7 +27,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let p of products">
-            <td><img src="https://picsum.photos/40/40/?random=1" alt="Alt text" class="uk-border-circle uk-preserve-width "></td>
+            <td><img src="{{p.gallery[0]}}" alt="Alt text" class="uk-border-circle uk-preserve-width" style="max-width: 40px;"></td>
             <td>{{p.title}}</td>
             <td>
               <a href="#" class="uk-icon-link uk-text-success" data-uk-icon="check"></a>
@@ -37,7 +37,7 @@
         </tbody>
       </table>
     </div>
-    <a [routerLink]="['create']" class="uk-button uk-button-primary">Thêm mới</a>
+    <a [routerLink]="['create']" class="uk-button uk-button-primary uk-margin">Thêm mới</a>
     </div>
   </div>
 </div>
