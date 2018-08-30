@@ -11,8 +11,12 @@ export class AuthService {
         return SessionFactory.getItem(userSessionKey).token;
     }
 
+    public getUserID() {
+        return SessionFactory.getItem(userSessionKey).user_info.id;
+    }
+
     public setToken(token) {
-        localStorage.setItem('token',token);
+        localStorage.setItem('token', token);
     }
 
     public authorize(token): boolean {

@@ -25,7 +25,10 @@ export const apiURL = {
     registerCustomer: getUrl('guest/register'),
     //customer
     createProduct: getUrl('customer/product/create'),
-    getProducts: getUrl('customer/product/list')
+    getProducts: getUrl('customer/product/list'),
+    //order
+    createOrder: getUrl('customer/order/create'),
+    getOrders: getUrl('customer/order/list'),
 }
 
 function getUrl(endPoint: string) {

@@ -4,7 +4,7 @@
   <div class="uk-card uk-card-default uk-card-small uk-card-hover">
     <div class="uk-card-header">
       <div class="uk-grid uk-grid-small">
-        <div class="uk-width-auto"><h4 class="uk-margin-remove-bottom">Danh sách sản phẩm</h4></div>
+        <div class="uk-width-auto"><h4 class="uk-margin-remove-bottom">Danh sách đơn hàng</h4></div>
         <div class="uk-width-expand uk-text-right">
           <a href="#" class="uk-icon-link uk-margin-small-right" data-uk-icon="icon: move"></a>
           <a href="#" class="uk-icon-link uk-margin-small-right" data-uk-icon="icon: cog"></a>
@@ -14,21 +14,21 @@
     </div>
     <div class="uk-card-body">
       <div class="uk-overflow-auto">
-        <div class="uk-placeholder uk-text-center" *ngIf="!products">
-          Hiện không có sản phẩm nào
+        <div class="uk-placeholder uk-text-center" *ngIf="!orders">
+          Hiện không có đơn hàng nào
         </div>
-      <table class="uk-table uk-table-hover uk-table-divider uk-table-middle" *ngIf="products">
+      <table class="uk-table uk-table-hover uk-table-divider uk-table-middle" *ngIf="orders">
         <thead>
           <tr>
-            <th class="uk-table-shrink" style="width: 15%">Ảnh SP</th>
-            <th>Tên SP</th>
-            <th>Action</th>
+            <th>Tên đơn hàng</th>
+            <th>Loại QRCode</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let p of products">
-            <td><img src="{{p.gallery[0]}}" alt="Alt text" class="uk-border-circle uk-preserve-width" style="max-width: 40px;"></td>
-            <td>{{p.title}}</td>
+          <tr *ngFor="let order of orders">
+            <td>{{order.name}}</td>
+            <td>{{order.type}}</td>
             <td>
               <a href="#" class="uk-icon-link uk-text-success" data-uk-icon="check"></a>
               <a href="#" class="uk-icon-link uk-text-danger" data-uk-icon="close"></a>

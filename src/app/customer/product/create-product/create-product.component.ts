@@ -8,6 +8,7 @@ import { ToastNotificationService } from '../../../x/http/toast-notification.ser
 import { NgForm } from '@angular/forms';
 import { Product } from '../../../shared/models/product.model';
 import { ProductService } from '../product.service';
+import { route } from '../../../common/constant.common';
 
 @Component({
   selector: 'app-create-product',
@@ -59,7 +60,7 @@ export class CreateProductComponent implements OnInit {
     this.product.gallery = this.downloadURLs
     this.productService.createProduct(this.product).subscribe(newProduct => {
       this.notify.success('Thêm sản phẩm thành công')
-      this.router.navigate(['./'])
+      this.router.navigate([route.rootProduct])
     })
   }
 }
