@@ -17,7 +17,7 @@ import { Product } from '../../../shared/models/product.model';
 export class CreateProductComponent implements OnInit {
 
   imagesPath = [guidGenerator(), guidGenerator(), guidGenerator(), guidGenerator()]
-  downloadURLs = ['', '', '', '', ''];
+  downloadURLs = ['', '', '', ''];
   imageIndex = -1
   uploadedImageIndex = -1
   uploadPercent: Observable<number>;
@@ -51,6 +51,7 @@ export class CreateProductComponent implements OnInit {
   }
 
   onRegister(f: NgForm) {
+    console.log(this.downloadURLs)
     if (this.downloadURLs.filter(x => x !== '').length !== this.downloadURLs.length) {
       this.notify.error('Bạn chưa upload đủ ảnh')
       return
