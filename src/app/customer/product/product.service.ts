@@ -15,4 +15,8 @@ export class ProductService {
     getProducts() {
         return this.httpService.Get(apiURL.getProducts)
     }
+    // ?id=GrMbJ01K0sa5YR5YChVNEMrlpG0PykD7YdJeYIDmdJC70iADLmc8vT7biFa5Vn8DO5ii5RN8qmd_MXtNlN64JKD0
+    scanProduct(id, code) {
+        return this.httpService.Get(apiURL.scanProducts, { id: id, code: code })
+    }
 }

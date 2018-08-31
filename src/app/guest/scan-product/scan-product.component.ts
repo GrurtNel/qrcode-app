@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../../customer/product/product.service';
+import { Product } from '../../shared/models/product.model';
+import { Customer } from '../../shared/models/customer.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LocalFactory } from '../../x/storage.utils';
 
 @Component({
   selector: 'app-scan-product',
@@ -6,10 +11,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./scan-product.component.css']
 })
 export class ScanProductComponent implements OnInit {
-
-  constructor() { }
+  product = <Product>{}
+  customer = <Customer>{}
+  constructor(
+    private productService: ProductService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    var code = ''
+    this.activatedRoute.queryParams.subscribe(query => {
+      // Kiểm tra khi điện thoại vào lại trình duyệt vs cùng request
+      if (localStorage.getItem('check_code')===query.id) {
+        this.router.navigate(['/'])
+        return
+      }
+      if (query.type) {
+        code = prompt("Nhập mã thẻ cào để kiểm tra")
+      }
+      this.productService.scanProduct(query.id, code).subscribe(res => {
+        this.product = res.product
+        this.customer = res.customer
+        localStorage.setItem('check_code', query.id)
+      }, err => {
+        this.router.navigate(['/'])
+      })
+    })
   }
 
 }

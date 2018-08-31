@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { EditorModule } from 'primeng/editor';
 import { RegisterComponent } from './register/register.component';
 import { ScanProductComponent } from './scan-product/scan-product.component';
+import { ProductService } from '../customer/product/product.service';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { ScanProductComponent } from './scan-product/scan-product.component';
     ScanProductComponent
   ],
   providers: [
+    ProductService
   ]
 })
 export class GuestModule { }

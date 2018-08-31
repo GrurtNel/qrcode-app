@@ -1,70 +1,55 @@
-<div uk-slider="center: true">
 
-  <div class="uk-position-relative uk-visible-toggle uk-light">
-
-      <ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
-          <li>
-              <div class="uk-card uk-card-default">
-                  <div class="uk-card-media-top">
-                      <img src="https://getuikit.com/docs/images/light.jpg" alt="">
-                  </div>
-                  <div class="uk-card-body">
-                      <h3 class="uk-card-title">Headline</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                  </div>
-              </div>
-          </li>
-          <li>
-              <div class="uk-card uk-card-default">
-                  <div class="uk-card-media-top">
-                      <img src="https://getuikit.com/docs/images/photo2.jpg" alt="">
-                  </div>
-                  <div class="uk-card-body">
-                      <h3 class="uk-card-title">Headline</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                  </div>
-              </div>
-          </li>
-          <li>
-              <div class="uk-card uk-card-default">
-                  <div class="uk-card-media-top">
-                      <img src="https://getuikit.com/docs/images/photo3.jpg" alt="">
-                  </div>
-                  <div class="uk-card-body">
-                      <h3 class="uk-card-title">Headline</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                  </div>
-              </div>
-          </li>
-          <li>
-              <div class="uk-card uk-card-default">
-                  <div class="uk-card-media-top">
-                      <img src="images/photo2.jpg" alt="">
-                  </div>
-                  <div class="uk-card-body">
-                      <h3 class="uk-card-title">Headline</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                  </div>
-              </div>
-          </li>
-          <li>
-              <div class="uk-card uk-card-default">
-                  <div class="uk-card-media-top">
-                      <img src="images/photo3.jpg" alt="">
-                  </div>
-                  <div class="uk-card-body">
-                      <h3 class="uk-card-title">Headline</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                  </div>
-              </div>
-          </li>
-      </ul>
-
-      <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-      <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-
+<!-- panel -->
+<div class=" uk-width-1-1@l uk-width-1-1@xl">
+    <div class="uk-card uk-card-default uk-card-large uk-card-hover ">
+      <div class="uk-card-header uk-background-primary">
+        <div class="uk-grid uk-grid-small">
+          <div class="uk-width-auto"><h4 class="uk-margin-remove-bottom" style="color: white">Thông tin sản phẩm</h4></div>
+        </div>
+      </div>
+      <div class="uk-card-body">
+        <div class="uk-overflow-auto">
+            <article class="uk-article">
+                <p class="uk-text-lead">{{product.name}}.</p>
+                <div [innerHTML]="product.description"></div>
+            </article>
+            <div uk-slider="center: true" class="uk-margin">
+                <div class="uk-position-relative uk-visible-toggle uk-light">
+                    <ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
+                        <li *ngFor="let image of product.gallery">
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-media-top">
+                                    <img src="{{image}}" alt="">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                </div>
+                <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+            </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
-
-</div>
+  <!-- /panel -->
+  <!-- panel -->
+<div class=" uk-width-1-1@l uk-width-1-1@xl">
+    <div class="uk-card uk-card-default uk-card-small uk-card-hover">
+      <div class="uk-card-header uk-background-primary">
+        <div class="uk-grid uk-grid-small">
+          <div class="uk-width-auto"><h4 class="uk-margin-remove-bottom" style="color: white">Thông tin khách hàng</h4></div>
+        </div>
+      </div>
+      <div class="uk-card-body">
+        <div class="uk-overflow-auto">
+                <article class="uk-article">
+                    <p class="uk-text-lead">{{customer.company_name}}.</p>
+                    <div [innerHTML]="customer.information"></div>
+                </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /panel -->
