@@ -23,17 +23,12 @@ export class ScanProductComponent implements OnInit {
     var code = ''
     this.activatedRoute.queryParams.subscribe(query => {
       // Kiểm tra khi điện thoại vào lại trình duyệt vs cùng request
-      if (localStorage.getItem('check_code')===query.id) {
-        this.router.navigate(['/'])
-        return
-      }
       if (query.type) {
         code = prompt("Nhập mã thẻ cào để kiểm tra")
       }
       this.productService.scanProduct(query.id, code).subscribe(res => {
         this.product = res.product
         this.customer = res.customer
-        localStorage.setItem('check_code', query.id)
       }, err => {
         this.router.navigate(['/'])
       })

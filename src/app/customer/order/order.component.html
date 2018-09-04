@@ -22,16 +22,15 @@
           <tr>
             <th>Tên đơn hàng</th>
             <th>Loại QRCode</th>
-            <th></th>
+            <th>Trạng thái</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let order of orders">
             <td>{{order.name}}</td>
-            <td>{{order.type}}</td>
+            <td>{{qrcodeTypesMap[order.type]}}</td>
             <td>
-              <a href="#" class="uk-icon-link uk-text-success" data-uk-icon="check"></a>
-              <a href="#" class="uk-icon-link uk-text-danger" data-uk-icon="close"></a>
+                <span class="{{order.status==='pending'?'uk-text-danger':'uk-text-success'}}">{{order.status==='pending'?'Chờ duyệt':'Đang phân phối'}}</span>
             </td>
           </tr>
         </tbody>

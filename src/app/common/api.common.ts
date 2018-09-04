@@ -19,7 +19,9 @@ export const apiURL = {
     createUser: getUrl('admin/user/create'),
     deleteUser: getUrl('admin/user/delete'),
     //auth api
-    login: getUrl('auth/login'),
+    loginByCustomer: getUrl('auth/login'),
+    loginByAdmin: getUrl('admin/auth/login'),
+    logout: getUrl('auth/logout'),
     //report
     getGeneralReport: getUrl('admin/report/general'),
     registerCustomer: getUrl('guest/register'),

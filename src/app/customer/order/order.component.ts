@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from '../../shared/models/order.model';
 import { OrderService } from './order.service';
+import { qrcodeTypesMap } from '../../common/constant.common';
 
 @Component({
   selector: 'app-order',
@@ -9,6 +10,7 @@ import { OrderService } from './order.service';
 })
 export class OrderComponent implements OnInit {
   orders: Order[] = []
+  qrcodeTypesMap = qrcodeTypesMap
   constructor(
     private orderService: OrderService
   ) { }

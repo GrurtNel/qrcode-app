@@ -8,7 +8,14 @@ export class AuthService {
         private httpService: HttpService
     ) { }
 
-    login(loginInfo: any) {
-        return this.httpService.Post(apiURL.login, loginInfo)
+    login(loginInfo: any, isAdmin: boolean) {
+        if (isAdmin) {
+            return this.httpService.Post(apiURL.loginByAdmin, loginInfo)
+        }
+        return this.httpService.Post(apiURL.loginByCustomer, loginInfo)
+    }
+
+    logout() {
+        return this.httpService.Post(apiURL.logout, null)
     }
 }
