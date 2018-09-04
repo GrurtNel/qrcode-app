@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
 import { Product } from '../../../shared/models/product.model';
 import { ProductService } from '../product.service';
 import { route } from '../../../common/constant.common';
+import { AuthService } from '../../../x/http/auth.service';
 
 @Component({
   selector: 'app-create-product',
@@ -29,7 +30,8 @@ export class CreateProductComponent implements OnInit {
     private productService: ProductService,
     private fs: AngularFireStorage,
     private router: Router,
-    private notify: ToastNotificationService
+    private notify: ToastNotificationService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -58,6 +60,7 @@ export class CreateProductComponent implements OnInit {
     }
     this.product = f.value
     this.product.gallery = this.downloadURLs
+    this.product.customer_id = this.authService.getUserID()
     this.productService.createProduct(this.product).subscribe(newProduct => {
       this.notify.success('Thêm sản phẩm thành công')
       this.router.navigate([route.rootProduct])

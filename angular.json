@@ -32,7 +32,9 @@
             ],
             "scripts": [
               "src/assets/vendor/nicedit/nicedit.js",
-              "node_modules/quill/dist/quill.js"
+              "node_modules/quill/dist/quill.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/vendor/jquery/jquery.transit.min.js"              
             ]
           },
           "configurations": {

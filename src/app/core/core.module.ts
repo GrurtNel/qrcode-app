@@ -5,13 +5,19 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastNotificationService } from '../x/http/toast-notification.service';
 import { SnotifyService, ToastDefaults } from 'ng-snotify';
 import { AuthService } from '../x/http/auth.service';
+import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule
   ],
-  declarations: [],
+  exports: [
+    HeaderComponent,
+    SidebarComponent
+  ],
+  declarations: [HeaderComponent, SidebarComponent],
   providers: [
     HttpService,
     ToastNotificationService,
