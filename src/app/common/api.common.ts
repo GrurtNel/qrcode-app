@@ -32,6 +32,10 @@ export const apiURL = {
     //order
     createOrder: getUrl('customer/order/create'),
     getOrders: getUrl('customer/order/list'),
+    //admin api
+    getAllCustomers: getUrl('admin/customer/list'),
+    getAllOrders: getUrl('admin/order/list'),
+    deliveryOrder: getUrl('admin/order/delivery'),
 }
 
 function getUrl(endPoint: string) {

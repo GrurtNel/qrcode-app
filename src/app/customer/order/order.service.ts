@@ -15,4 +15,13 @@ export class OrderService {
     getOrders() {
         return this.httpService.Get(apiURL.getOrders)
     }
+
+    getAllOrders() {
+        return this.httpService.Get(apiURL.getAllOrders)
+    }
+
+    deliveryOrder(id: string) {
+        return this.httpService.Get(apiURL.deliveryOrder, { order_id: id })
+    }
+
 }

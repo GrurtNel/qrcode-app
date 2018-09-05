@@ -6,5 +6,5 @@ export interface Order {
     customer_id: string
     quantity: number
     url: string
-    status: string
+    activated: boolean
 }

@@ -3,13 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { OrderComponent } from './order/order.component';
+import { CustomerComponent } from './customer/customer.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'order', loadChildren: './order/order#OrderModule' },
-  { path: 'customer', loadChildren: './customer/customer#CustomerModule' },
   {
     path: '', component: AdminComponent, children: [
+      { path: 'order', component: OrderComponent },
+      { path: 'customer', component: CustomerComponent },
       { path: '', component: DashboardComponent }
     ]
   }
