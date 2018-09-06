@@ -8,6 +8,8 @@ import { EditorModule } from 'primeng/editor';
 import { RegisterComponent } from './register/register.component';
 import { ScanProductComponent } from './scan-product/scan-product.component';
 import { ProductService } from '../customer/product/product.service';
+import { ScanMarketingComponent } from './scan-marketing/scan-marketing.component';
+import { PublicService } from '../shared/services/public.service';
 
 @NgModule({
   imports: [
@@ -19,10 +21,12 @@ import { ProductService } from '../customer/product/product.service';
   declarations: [
     GuestComponent,
     RegisterComponent,
-    ScanProductComponent
+    ScanProductComponent,
+    ScanMarketingComponent
   ],
   providers: [
-    ProductService
+    ProductService,
+    PublicService
   ]
 })
 export class GuestModule { }
