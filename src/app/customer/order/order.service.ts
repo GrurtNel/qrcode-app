@@ -28,4 +28,8 @@ export class OrderService {
         return this.httpService.Get(apiURL.deliveryOrder, { order_id: id })
     }
 
+    generateCSV(orderID: string, quantity: number) {
+        return this.httpService.Get(apiURL.deliveryOrder, { order_id: orderID, quantity: quantity })
+    }
+
 }

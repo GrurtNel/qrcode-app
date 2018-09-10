@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../customer/product/product.service';
 import { Product } from '../../shared/models/product.model';
 import { Customer } from '../../shared/models/customer.model';
-import { ActivatedRoute, Router } from '@angular/router';
-import { LocalFactory } from '../../x/storage.utils';
+import { ActivatedRoute } from '@angular/router';
+import { OrderService } from '../../customer/order/order.service';
+import { PublicService } from '../../shared/services/public.service';
 
 @Component({
   selector: 'app-scan-product',
@@ -16,7 +17,7 @@ export class ScanProductComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private publicService: PublicService
   ) { }
 
   ngOnInit() {
@@ -26,11 +27,11 @@ export class ScanProductComponent implements OnInit {
       if (query.type) {
         code = prompt("Nhập mã thẻ cào để kiểm tra")
       }
-      this.productService.scanProduct(query.id, code).subscribe(res => {
+      this.productService.scanProduct(query.id, query.order_id, code).subscribe(res => {
         this.product = res.product
         this.customer = res.customer
       }, err => {
-        this.router.navigate(['/'])
+        window.location.href = 'http://qrcode-united.mart24h.com/'
       })
     })
   }

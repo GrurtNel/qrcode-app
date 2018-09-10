@@ -33,7 +33,7 @@
               <td>{{order.quantity}}</td>
               <td>
                   <span class="uk-badge" style="cursor: pointer;" *ngIf="!order.activated" (click)="onDelivery(order)">Phân phối</span>
-                  <a href="#modal-center" uk-toggle class="uk-badge uk-success"  style="cursor: pointer;position: relative;">Xuất CSV</a>
+                  <a href="#modal-center" uk-toggle class="uk-badge uk-success"  style="cursor: pointer;position: relative;" (click)="selectedOrder = order">Xuất CSV</a>
                   
               </td>
             </tr>
@@ -48,9 +48,9 @@
   <div id="modal-center" class="uk-flex-top" uk-modal>
       <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
           <button class="uk-modal-close-default" type="button" uk-close></button>
-          <input class="uk-input uk-width-1-1" type="number" placeholder="Nhập số lượng in">
+          <input class="uk-input uk-width-1-1" type="number" placeholder="Nhập số lượng in" [(ngModel)]="quantity">
           <div class="uk-width-1-1 uk-text-center uk-margin">
-              <button class="uk-button uk-button-primary uk-button-small">Xuất CSV</button>
+              <button class="uk-button uk-button-primary uk-button-small" (click)="onGenerateCSV()">Xuất CSV</button>
           </div>
       </div>
   </div>

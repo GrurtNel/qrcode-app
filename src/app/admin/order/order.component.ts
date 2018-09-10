@@ -11,6 +11,8 @@ import { qrcodeTypesMap } from '../../common/constant.common';
 export class OrderComponent implements OnInit {
   orders: Order[]
   qrcodeTypesMap = qrcodeTypesMap
+  selectedOrder: Order
+  quantity: number
   constructor(
     private orderService: OrderService
   ) { }
@@ -24,6 +26,12 @@ export class OrderComponent implements OnInit {
   onDelivery(order: Order) {
     this.orderService.deliveryOrder(order.id).subscribe(res => {
       order.activated = true
+    })
+  }
+
+  onGenerateCSV() {
+    this.orderService.generateCSV(this.selectedOrder.id, this.quantity).subscribe(res=>{
+      console.log(res)
     })
   }
 }

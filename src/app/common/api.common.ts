@@ -28,7 +28,7 @@ export const apiURL = {
     //customer
     createProduct: getUrl('customer/product/create'),
     getProducts: getUrl('customer/product/list'),
-    scanProducts: getUrl('public/product/detail'),
+    scanProducts: getUrl('public/product/scan'),
     //order
     createOrder: getUrl('customer/order/create'),
     getOrders: getUrl('customer/order/list'),
@@ -39,6 +39,7 @@ export const apiURL = {
     getAllCustomers: getUrl('admin/customer/list'),
     getAllOrders: getUrl('admin/order/list'),
     deliveryOrder: getUrl('admin/order/delivery'),
+    generateCSV: getUrl('admin/order/generate'),
 }
 
 function getUrl(endPoint: string) {
