@@ -33,7 +33,7 @@ export const apiURL = {
     createOrder: getUrl('customer/order/create'),
     getOrders: getUrl('customer/order/list'),
     //public
-    getOrderByID: getUrl('public/order/list'),
+    getOrderByID: getUrl('public/order/detail'),
     scanMarketing: getUrl('public/marketing/scan'),
     //admin api
     getAllCustomers: getUrl('admin/customer/list'),

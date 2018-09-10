@@ -12,6 +12,10 @@ export class OrderService {
         return this.httpService.Post(apiURL.createOrder, order)
     }
 
+    getOrderByID(orderID: string) {
+        return this.httpService.Get(apiURL.getOrderByID, { order_id: orderID })
+    }
+
     getOrders() {
         return this.httpService.Get(apiURL.getOrders)
     }

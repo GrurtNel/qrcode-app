@@ -10,6 +10,7 @@ import { ScanProductComponent } from './scan-product/scan-product.component';
 import { ProductService } from '../customer/product/product.service';
 import { ScanMarketingComponent } from './scan-marketing/scan-marketing.component';
 import { PublicService } from '../shared/services/public.service';
+import { OrderService } from '../customer/order/order.service';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { PublicService } from '../shared/services/public.service';
   ],
   providers: [
     ProductService,
-    PublicService
+    PublicService,
+    OrderService
   ]
 })
 export class GuestModule { }
