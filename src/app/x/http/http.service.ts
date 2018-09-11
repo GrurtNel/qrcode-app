@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest, HttpHandler } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { HttpInterceptor } from '@angular/common/http/src/interceptor';
-import { HttpEvent, HttpErrorResponse, HttpResponse } from '@angular/common/http/src/response';
+import { HttpEvent, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from './auth.service';
 import 'rxjs/add/operator/finally';

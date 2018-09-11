@@ -20,6 +20,10 @@ export class OrderService {
         return this.httpService.Get(apiURL.getOrders)
     }
 
+    deleteOrderID(orderID: string) {
+        return this.httpService.Get(apiURL.deleteOrder, { id: orderID })
+    }
+
     getAllOrders() {
         return this.httpService.Get(apiURL.getAllOrders)
     }
@@ -29,7 +33,7 @@ export class OrderService {
     }
 
     generateCSV(orderID: string, quantity: number) {
-        return this.httpService.Get(apiURL.deliveryOrder, { order_id: orderID, quantity: quantity })
+        return this.httpService.Get(apiURL.generateCSV, { order_id: orderID, quantity: quantity })
     }
 
 }

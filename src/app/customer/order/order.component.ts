@@ -23,4 +23,9 @@ export class OrderComponent implements OnInit {
     })
   }
 
+  onDeleteOrder(orderID: string, i: number) {
+    this.orderService.deleteOrderID(orderID).subscribe(res => {
+      this.orders.splice(i, 1)
+    })
+  }
 }
