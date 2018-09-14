@@ -16,7 +16,7 @@ export class OrderComponent implements OnInit {
   qrcodeTypesMap = qrcodeTypesMap
   selectedOrder: Order
   quantity: number
-  endpoint = 'http://localhost:4200/#/marketing/scan?order_id='
+  endpoint = 'http://app.qrcode-united.com/app/#/marketing/scan?order_id='
   constructor(
     private orderService: OrderService,
     private http: HttpClient,
