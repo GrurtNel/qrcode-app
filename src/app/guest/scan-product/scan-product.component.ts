@@ -14,6 +14,10 @@ import { PublicService } from '../../shared/services/public.service';
 export class ScanProductComponent implements OnInit {
   product = <Product>{}
   customer = <Customer>{}
+  code = ''
+  productID = ''
+  orderID = ''
+  isVerify = false
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
@@ -24,16 +28,30 @@ export class ScanProductComponent implements OnInit {
     var code = ''
     this.activatedRoute.queryParams.subscribe(query => {
       // Kiểm tra khi điện thoại vào lại trình duyệt vs cùng request
-      if (query.type) {
-        code = prompt("Nhập mã thẻ cào để kiểm tra")
-      }
-      this.productService.scanProduct(query.id, query.order_id, code).subscribe(res => {
-        this.product = res.product
-        this.customer = res.customer
-      }, err => {
-        window.location.href = 'http://qrcode-united.mart24h.com/'
-      })
+      this.productID = query.id
+      this.orderID = query.order_id
     })
   }
 
+  verifyProduct(code: string) {
+    this.productService.scanProduct(this.productID, this.orderID, code).subscribe(res => {
+      this.product = res.product
+      this.customer = res.customer
+      this.isVerify = true
+    }, err => {
+      // window.location.href = 'http://qrcode-united.mart24h.com/'
+    })
+  }
+
+  findMe() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        console.log(position.coords)
+        alert(position.coords.latitude)
+      });
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
 }
+
