@@ -31,13 +31,12 @@
           <tr *ngFor="let order of orders;let i=index">
             <td>{{order.name}}</td>
             <td>{{qrcodeTypesMap[order.type]}}</td>
-            
             <td>
               <span class="{{order.activated?'uk-text-success':'uk-text-danger'}}">{{order.activated?'Đang phân phối':'Chờ duyệt'}}</span>
             </td>
             <td>
               <ul class="uk-iconnav">
-                <li><a href="#" uk-icon="icon: file-edit"></a></li>
+                <li><a href="#" uk-icon="icon: file-edit" [routerLink]="['update', order]"></a></li>
                 <li><a href="#" uk-icon="icon: trash" (click)="onDeleteOrder(order.id, i)"></a></li>
               </ul>
             </td>

@@ -8,13 +8,14 @@ import { SharedModule } from '../../shared/shared.module';
 import { AuthService } from '../../auth/auth.service';
 import { OrderService } from './order.service';
 import { ProductService } from '../product/product.service';
+import { UpdateOrderComponent } from './update-order/update-order.component';
 
 @NgModule({
   imports: [
     SharedModule,
     OrderRoutingModule
   ],
-  declarations: [CreateOrderComponent, OrderComponent],
+  declarations: [CreateOrderComponent, OrderComponent, UpdateOrderComponent],
   providers: [
     AuthService,
     OrderService,

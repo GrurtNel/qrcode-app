@@ -13,6 +13,7 @@ import { CustomerService } from './customer/customer.service';
 import { OrderService } from '../customer/order/order.service';
 import { CustomerComponent } from './customer/customer.component';
 import { OrderComponent } from './order/order.component';
+import { UpdateOrderComponent } from './order/update-order/update-order.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { OrderComponent } from './order/order.component';
     SidebarComponent,
     DashboardComponent,
     CustomerComponent,
-    OrderComponent
+    OrderComponent,
+    UpdateOrderComponent
   ],
   providers: [
     AuthService,
