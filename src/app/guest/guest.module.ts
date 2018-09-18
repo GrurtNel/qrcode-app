@@ -5,7 +5,6 @@ import { GuestRoutingModule } from './guest-routing.module';
 import { GuestComponent } from './guest.component';
 import { FormsModule } from '@angular/forms';
 import { EditorModule } from 'primeng/editor';
-import { RegisterComponent } from './register/register.component';
 import { ScanProductComponent } from './scan-product/scan-product.component';
 import { ProductService } from '../customer/product/product.service';
 import { ScanMarketingComponent } from './scan-marketing/scan-marketing.component';
@@ -21,7 +20,6 @@ import { OrderService } from '../customer/order/order.service';
   ],
   declarations: [
     GuestComponent,
-    RegisterComponent,
     ScanProductComponent,
     ScanMarketingComponent
   ],

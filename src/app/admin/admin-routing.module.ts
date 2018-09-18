@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrderComponent } from './order/order.component';
 import { CustomerComponent } from './customer/customer.component';
 import { UpdateOrderComponent } from './order/update-order/update-order.component';
+import { RegisterComponent } from './customer/register/register.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
       { path: 'order/:id', component: UpdateOrderComponent },
       { path: 'order', component: OrderComponent },
       { path: 'customer', component: CustomerComponent },
+      { path: 'customer/register', component: RegisterComponent },
       { path: '', component: DashboardComponent }
     ]
   }

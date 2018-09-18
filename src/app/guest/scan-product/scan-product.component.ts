@@ -14,6 +14,7 @@ import { PublicService } from '../../shared/services/public.service';
 export class ScanProductComponent implements OnInit {
   product = <Product>{}
   customer = <Customer>{}
+  scanInfo = {}
   code = ''
   productID = ''
   orderID = ''
@@ -37,6 +38,7 @@ export class ScanProductComponent implements OnInit {
     this.productService.scanProduct(this.productID, this.orderID, code).subscribe(res => {
       this.product = res.product
       this.customer = res.customer
+      this.scanInfo = res.scan_info
       this.isVerify = true
     }, err => {
       // window.location.href = 'http://qrcode-united.mart24h.com/'

@@ -13,7 +13,7 @@
                 <img src="/assets/image/scan_product.png" alt="" *ngIf="!isVerify">
                 <img src="/assets/image/check-mark.png" alt="" *ngIf="isVerify">
             </div>
-            <div class="uk-text-center uk-margin">
+            <div class="uk-text-center uk-margin" *ngIf="!isVerify">
                 <div class="uk-margin">
                     <input class="uk-input uk-form-width-small" type="text"  #code>
                     <button class="uk-button uk-button-primary uk-margin" (click)="verifyProduct(code.value)">Xác nhận</button>
@@ -24,6 +24,24 @@
             </div>
             <div class="uk-alert-success" uk-alert *ngIf="isVerify">
                 <p>Sản phẩm bạn mua là sản phẩm chính hãng được xác thực bởi trung tâm chống hàng giả.</p>
+            </div>
+            <div class="uk-text-center uk-margin" *ngIf="isVerify">
+                <table class="uk-table uk-table-justify uk-table-divider">
+                    <thead>
+                        <tr>
+                            <th class="uk-width-small">Số lượt quét</th>
+                            <th class="uk-text-right">{{scanInfo.number_of_scan}}</th>
+                        </tr>
+                        <tr>
+                            <th class="uk-width-small">Quét lần đầu lúc</th>
+                            <th class="uk-text-right"> {{scanInfo.verify_at*1000|date:'medium'}}</th>
+                        </tr>
+                        <tr>
+                            <th class="uk-width-small">Quét lần đầu tại</th>
+                            <th class="uk-text-right">Hà Nội</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
       </div>

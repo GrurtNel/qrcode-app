@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { getBase64, guidGenerator } from '../../x/utils';
-import { Customer } from '../../shared/models/customer.model';
 import { NgForm } from '@angular/forms';
-import { HttpService } from '../../x/http/http.service';
-import { apiURL } from '../../common/api.common';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { Observable } from 'rxjs/Observable';
 import { finalize } from 'rxjs/operators';
-import { SessionFactory } from '../../x/storage.utils';
-import { userSessionKey, route } from '../../common/constant.common';
 import { Router } from '@angular/router';
+import { Customer } from '../../../shared/models/customer.model';
+import { HttpService } from '../../../x/http/http.service';
+import { guidGenerator } from '../../../x/utils';
+import { apiURL } from '../../../common/api.common';
+import { userSessionKey, route } from '../../../common/constant.common';
+import { SessionFactory } from '../../../x/storage.utils';
 
 @Component({
   selector: 'app-register',

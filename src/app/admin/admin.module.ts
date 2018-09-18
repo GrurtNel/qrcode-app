@@ -14,6 +14,7 @@ import { OrderService } from '../customer/order/order.service';
 import { CustomerComponent } from './customer/customer.component';
 import { OrderComponent } from './order/order.component';
 import { UpdateOrderComponent } from './order/update-order/update-order.component';
+import { RegisterComponent } from './customer/register/register.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { UpdateOrderComponent } from './order/update-order/update-order.componen
     DashboardComponent,
     CustomerComponent,
     OrderComponent,
-    UpdateOrderComponent
+    UpdateOrderComponent,
+    RegisterComponent
   ],
   providers: [
     AuthService,
