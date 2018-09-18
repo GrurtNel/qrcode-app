@@ -10,10 +10,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerService } from './customer/customer.service';
-import { OrderService } from '../customer/order/order.service';
 import { CustomerComponent } from './customer/customer.component';
-import { OrderComponent } from './order/order.component';
-import { UpdateOrderComponent } from './order/update-order/update-order.component';
 import { RegisterComponent } from './customer/register/register.component';
 
 @NgModule({
@@ -29,14 +26,11 @@ import { RegisterComponent } from './customer/register/register.component';
     SidebarComponent,
     DashboardComponent,
     CustomerComponent,
-    OrderComponent,
-    UpdateOrderComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   providers: [
     AuthService,
     CustomerService,
-    OrderService
   ]
 })
 export class AdminModule { }

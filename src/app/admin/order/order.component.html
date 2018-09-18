@@ -11,6 +11,15 @@
         </div>
       </div>
       <div class="uk-card-body">
+          <div class="uk-margin">
+              <div class="uk-width-1-2">
+                  <select class="uk-select uk-width-2-3" #filterCustomer>
+                      <option value="">Chọn khách hàng</option>
+                      <option value="{{customer.id}}" *ngFor="let customer of customers">{{customer.company_name}}</option>
+                  </select>
+                  <button class="uk-button uk-button-primary" (click)="onFilter(filterCustomer.value)">Lọc</button>
+              </div>
+            </div>
         <div class="uk-overflow-auto">
           <div class="uk-placeholder uk-text-center" *ngIf="!orders">
             Hiện không có đơn hàng nào
@@ -39,6 +48,7 @@
         </table>
       </div>
       <!-- <a [routerLink]="['create']" class="uk-button uk-button-primary uk-margin">Thêm mới</a> -->
+      <a [routerLink]="['create/'+filterCustomer.value]" class="uk-button uk-button-primary uk-margin" *ngIf="filterCustomer.value!==''">Thêm mới</a>
       </div>
     </div>
   </div>

@@ -1,11 +1,11 @@
 export const userSessionKey = 'user_info'
 export const route = {
-    customerDashboard: '/customer',
+    customerDashboard: '/admin/customer',
     customerRegister: '/customer/register',
     createProduct: '/customer/product/create',
-    rootProduct: '/customer/product',
+    rootProduct: '/admin/product',
     createOrder: '/customer/order/create',
-    rootOrder: '/customer/order',
+    rootOrder: '/admin/order',
 }
 export const qrcodeTypes = [
     { name: 'QRCode marketing', type: 'qrcode-type1' },

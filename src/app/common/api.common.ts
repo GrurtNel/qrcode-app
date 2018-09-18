@@ -26,11 +26,9 @@ export const apiURL = {
     getGeneralReport: getUrl('admin/report/general'),
     registerCustomer: getUrl('guest/register'),
     //customer
-    createProduct: getUrl('customer/product/create'),
-    getProducts: getUrl('customer/product/list'),
+    getProductByCustomer: getUrl('customer/product/list'),
     scanProducts: getUrl('public/product/scan'),
     //order
-    createOrder: getUrl('customer/order/create'),
     getOrders: getUrl('customer/order/list'),
     deleteOrder: getUrl('customer/order/delete'),
     //public
@@ -38,8 +36,11 @@ export const apiURL = {
     scanMarketing: getUrl('public/marketing/scan'),
     //admin api
     getAllCustomers: getUrl('admin/customer/list'),
-    getAllOrders: getUrl('admin/order/list'),
+    getAllProducts: getUrl('admin/product/list'),
+    createProduct: getUrl('admin/product/create'),
     deliveryOrder: getUrl('admin/order/delivery'),
+    createOrder: getUrl('admin/order/create'),
+    getAllOrders: getUrl('admin/order/list'),
     generateCSV: getUrl('admin/order/generate'),
 }
 

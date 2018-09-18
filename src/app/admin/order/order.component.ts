@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderService } from '../../customer/order/order.service';
 import { Order } from '../../shared/models/order.model';
 import { qrcodeTypesMap } from '../../common/constant.common';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { apiURL } from '../../common/api.common';
 import { AuthService } from '../../x/http/auth.service';
+import { CustomerService } from '../customer/customer.service';
+import { Customer } from '../../shared/models/customer.model';
+import { OrderService } from './order.service';
 
 @Component({
   selector: 'app-order',
@@ -13,20 +15,22 @@ import { AuthService } from '../../x/http/auth.service';
 })
 export class OrderComponent implements OnInit {
   orders: Order[]
+  customers: Customer[] = []
   qrcodeTypesMap = qrcodeTypesMap
   selectedOrder: Order
   quantity: number
   endpoint = 'http://app.qrcode-united.com/app/#/marketing/scan?order_id='
+  customerFilter = ''
   constructor(
     private orderService: OrderService,
     private http: HttpClient,
-    private authService: AuthService
+    private authService: AuthService,
+    private customerService: CustomerService
   ) { }
 
   ngOnInit() {
-    this.orderService.getAllOrders().subscribe(res => {
-      this.orders = res
-    })
+    this.getAllCustomer()
+    this.getAllOrder('')
   }
 
   onDelivery(order: Order) {
@@ -45,4 +49,20 @@ export class OrderComponent implements OnInit {
     window.open(`${apiURL.generateCSV}?order_id=${this.selectedOrder.id}&quantity=${this.quantity}&access_token=${this.authService.getToken()}`, '_blank')
   }
 
+  onFilter(customer: string) {
+    this.customerFilter = customer
+    this.getAllOrder(customer)
+  }
+
+  getAllOrder(customer: string) {
+    this.orderService.getAllOrders(customer).subscribe(orders => {
+      this.orders = orders;
+    })
+  }
+
+  getAllCustomer() {
+    this.customerService.getCustomers().subscribe(customers => {
+      this.customers = customers;
+    })
+  }
 }

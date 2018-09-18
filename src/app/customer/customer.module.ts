@@ -19,3 +19,4 @@ import { AuthService } from '../auth/auth.service';
   providers: [HttpService, AuthService]
 })
 export class CustomerModule { }
+  

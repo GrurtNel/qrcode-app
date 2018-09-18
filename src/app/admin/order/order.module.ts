@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { OrderRoutingModule } from './order-routing.module';
 import { CreateOrderComponent } from './create-order/create-order.component';
-import { OrderComponent } from './order.component';
-import { SharedModule } from '../../shared/shared.module';
-import { AuthService } from '../../auth/auth.service';
-import { OrderService } from './order.service';
-import { ProductService } from '../product/product.service';
 import { UpdateOrderComponent } from './update-order/update-order.component';
+import { OrderComponent } from './order.component';
+import { OrderService } from './order.service';
+import { SharedModule } from '../../shared/shared.module';
+import { ProductService } from '../product/product.service';
 
 @NgModule({
   imports: [
-    SharedModule,
-    OrderRoutingModule
+    CommonModule,
+    OrderRoutingModule,
+    SharedModule
   ],
   declarations: [
-    CreateOrderComponent, 
-    OrderComponent, 
-    UpdateOrderComponent
+    CreateOrderComponent,
+    UpdateOrderComponent,
+    OrderComponent
   ],
   providers: [
-    AuthService,
     OrderService,
     ProductService
   ]
