@@ -9,12 +9,12 @@ export const route = {
 }
 export const qrcodeTypes = [
     { name: 'QRCode marketing', type: 'qrcode-type1' },
-    { name: 'QRCode truy xuất nguồn gốc', type: 'qrcode-type2' },
-    { name: 'QRCode chống giả', type: 'qrcode-type3' }
+    { name: 'QRCode chống giả loại 1', type: 'qrcode-type2' },
+    { name: 'QRCode chống giả loại 2', type: 'qrcode-type3' }
 ]
 
 export const qrcodeTypesMap = {
     'qrcode-type1':'QRCode marketing',
-    'qrcode-type2':'QRCode truy xuất nguồn gốc',
-    'qrcode-type3':'QRCode chống giả',
+    'qrcode-type2':'QRCode chống giả loại 1',
+    'qrcode-type3':'QRCode chống giả loại 2',
 }

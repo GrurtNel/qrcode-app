@@ -5,6 +5,7 @@ import { Customer } from '../../shared/models/customer.model';
 import { ActivatedRoute } from '@angular/router';
 import { OrderService } from '../../customer/order/order.service';
 import { PublicService } from '../../shared/services/public.service';
+import { qrcodeTypes } from '../../common/constant.common';
 
 @Component({
   selector: 'app-scan-product',
@@ -18,6 +19,7 @@ export class ScanProductComponent implements OnInit {
   code = ''
   productID = ''
   orderID = ''
+  qrcodeType = ''
   isVerify = false
   constructor(
     private productService: ProductService,
@@ -26,16 +28,22 @@ export class ScanProductComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    var code = ''
     this.activatedRoute.queryParams.subscribe(query => {
       // Kiểm tra khi điện thoại vào lại trình duyệt vs cùng request
       this.productID = query.id
       this.orderID = query.order_id
+      this.qrcodeType = query.type
+      if (this.qrcodeType === qrcodeTypes[1].type) {
+        this.code = this.productID.substring(this.productID.length-6, this.productID.length)
+      }
     })
   }
 
-  verifyProduct(code: string) {
-    this.productService.scanProduct(this.productID, this.orderID, code).subscribe(res => {
+  verifyProduct() {
+    if (this.qrcodeType === qrcodeTypes[1].type) {
+      this.code = ''
+    }
+    this.productService.scanProduct(this.productID, this.orderID, this.code).subscribe(res => {
       this.product = res.product
       this.customer = res.customer
       this.scanInfo = res.scan_info
