@@ -40,8 +40,8 @@
               <td>{{order.quantity}}</td>
               <td>
                   <span class="uk-badge" style="cursor: pointer;" *ngIf="!order.activated" (click)="onDelivery(order)">Phân phối</span>
-                  <a href="#modal-center" uk-toggle class="uk-badge uk-success"  style="cursor: pointer;position: relative;" (click)="selectedOrder = order" *ngIf="order.type!=='qrcode-type1'">Xuất CSV</a>
-                  <span    style="cursor: pointer;" *ngIf="order.type==='qrcode-type1'">{{endpoint+order.id}}</span>
+                  <a href="#modal-center" uk-toggle class="uk-badge uk-success"  style="cursor: pointer;position: relative;" (click)="selectedOrder = order" *ngIf="order.type!=='qrcode-marketing'">Xuất CSV</a>
+                  <span    style="cursor: pointer;" *ngIf="order.type==='qrcode-marketing'">{{endpoint+order.id}}</span>
               </td>
             </tr>
           </tbody>
